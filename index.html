@@ -17,6 +17,12 @@
 			padding-right: 7px;
 			display: inline;
 		}
+		#vowel{
+			color: purple;
+			/*border-right: 1px solid purple;*/
+			/*padding-right: 7px;*/
+			display: inline;
+		}
 	</style>
 </head>
 <body>
@@ -32,9 +38,34 @@
 
 		function updateText()
 		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-
-			if(character_counter == words[word_counter].length)
+			// el.innerHTML = el.innerHTML+words[word_counter][character_counter];
+			
+			if(words[word_counter][character_counter] == " "){
+				el.innerHTML = el.innerHTML + "&nbsp;";
+			}
+			else if(words[word_counter][character_counter] == "a"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else if(words[word_counter][character_counter] == "e"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else if(words[word_counter][character_counter] == "i"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else if(words[word_counter][character_counter] == "o"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else if(words[word_counter][character_counter] == "u"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else if(words[word_counter][character_counter] == "y"){
+				el.innerHTML = el.innerHTML + "<span id='vowel'>"+words[word_counter][character_counter]+"</span>";
+			}
+			else{
+				el.innerHTML = el.innerHTML+words[word_counter][character_counter];
+			}
+			character_counter++;
+			if(character_counter == words[word_counter].length+1)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
@@ -44,6 +75,7 @@
 				if(word_counter == words.length)
 					word_counter = 0;
 			}
+
 		}
 
 		setInterval(updateText,300);
